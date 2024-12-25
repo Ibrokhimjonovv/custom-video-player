@@ -74,13 +74,13 @@ function changeQuality(quality) {
   let videoSource = "";
 
   if (quality === "360p") {
-    videoSource = "./video360p.mp4";
+    videoSource = "https://gold77.top/Kinolar/Yaxshi bo'lish osonmi 4 2024.mp4";
   } else if (quality === "480p") {
     videoSource = "https://gold77.top/Kinolar/Yaxshi bo'lish osonmi 4 2024.mp4";
   } else if (quality === "720p") {
-    videoSource = "https://www.w3schools.com/html/mov_bbb.mp4";
+    videoSource = "https://gold77.top/Kinolar/Yaxshi bo'lish osonmi 4 2024.mp4";
   } else if (quality === "1440p") {
-    videoSource = "https://example.com/video_1440p.mp4";
+    videoSource = "https://gold77.top/Kinolar/Yaxshi bo'lish osonmi 4 2024.mp4";
   }
 
   video.src = videoSource;
