@@ -1,0 +1,359 @@
+* {
+    transition: all 0.2s;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: #111111;
+}
+
+#video-container {
+    max-width: 800px;
+    /* min-height: 400px; */
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#video-container.active .video-content video {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.video-content {
+    position: relative;
+}
+
+video {
+    width: 100%;
+    height: 500px;
+}
+
+.controls {
+    margin-top: 10px;
+    position: absolute;
+    bottom: 3px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    row-gap: 10px;
+    z-index: 99999999999 !important;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.controls-inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left, .right {
+    display: flex;
+}
+
+.settings-icon {
+    display: none;
+}
+
+.settings-icon img {
+    width: 20px;
+}
+
+.qualities {
+    /* opacity: 0; */
+    transition: all 0.3s;
+    /* z-index: -11111111; Default holatda element ko'rinmas bo'lishi uchun juda past z-index */
+    position: absolute;
+    border-radius: 7px;
+    background-color: #000000ad;
+    right: 25px;
+    bottom: 40px;
+    /* overflow: hidden; */
+    width: 100px;
+    right: -100%;
+}
+
+.qualities.active-qualities {
+    opacity: 1;
+    z-index: 1;
+    right: 25px;
+}
+
+
+.qualities button {
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+    margin: unset;
+    color: #fff;
+}
+
+.qualities button::before {
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    right: 10px;
+}
+
+.quality-btn.active{
+    color: #38baf6;
+}
+
+.quality-btn.active::before {
+    background-color: #38baf6 !important;
+}
+
+.qualities button:hover {
+    background-color: #ddd;
+}
+
+button {
+    margin-right: 10px;
+}
+
+.progress-container {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    background: #ddd;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background: #f29824;
+}
+
+.tooltip {
+    position: absolute;
+    background: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    display: none;
+    font-size: 12px;
+}
+
+.pause-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 11;
+}
+
+.pause-overlay img {
+    width: 80px;
+}
+
+.pause-overlay:hover img {
+    transform: scale(1.1);
+}
+
+button,
+input,
+img,
+.progress-container {
+    cursor: pointer;
+}
+
+button {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+button img {
+    width: 18px;
+}
+
+button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 12px !important;
+}
+button #qq {
+    left: 46.5%;
+}
+
+.nextBtn img {
+    transform: scaleX(-1);
+}
+
+.nextBtn, .prevBtn {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+
+.nextBtn img, .prevBtn img {
+    width: 22px !important;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    padding: 0;
+    margin: 10px 0;
+    margin-right: 10px !important;
+}
+
+/* Track stilini o'zgartirish */
+input[type="range"]::-webkit-slider-runnable-track {
+    background: #f29824;
+    height: 4px;
+    border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+    background: #f29824;
+    height: 4px;
+    border-radius: 5px;
+}
+
+input[type="range"]::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+    width: 100%;
+    height: 4px;
+}
+
+/* Thumb stilini o'zgartirish */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 2px solid #f29824;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -4px; /* Markazlash uchun */
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 2px solid #f29824;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="range"]::-ms-thumb {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 2px solid #f29824;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Aktiv bo'lganda thumb o'zgarishi */
+input[type="range"]:active::-webkit-slider-thumb {
+    background: #f29824;
+    border-color: #fff;
+}
+
+input[type="range"]:active::-moz-range-thumb {
+    background: #f29824;
+    border-color: #fff;
+}
+
+input[type="range"]:active::-ms-thumb {
+    background: #f29824;
+    border-color: #fff;
+}
+
+#fullscreenBtn {
+    margin-left: 10px;
+}
+
+.black {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    z-index: 1;
+    position: absolute;
+}
+
+#current-time, #duration {
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+#duration {
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 749px) {
+    body {
+        padding-inline: 20px;
+    }
+
+    #video-container {
+        width: 100%;
+        height: 100%;
+    }   
+
+    video {
+        width: 100%;
+        height: 100%;
+    }
+
+    #current-time, #duration {
+        color: #fff;
+        font-size: 13px;
+    }
+
+    input[type="range"] {
+        width: 30%;
+    }
+
+    .right {
+        justify-content: end;
+    }
+
+    .nextBtn img, .prevBtn img {
+        width: 20px !important;
+    }
+
+    button span {
+        font-size: 11px !important;
+    }
+
+    button img {
+        width: 16px;
+    }
+    
+    .pause-overlay img {
+        width: 60px;
+    }
+}

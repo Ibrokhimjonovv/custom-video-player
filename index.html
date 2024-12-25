@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div id="video-container">
+        <div class="video-content">
+            <video id="myVideo" src="https://gold77.top/Kinolar/Yaxshi bo'lish osonmi 4 2024.mp4"></video>
+            <div class="pause-overlay" id="pauseOverlay">
+                <img src="./play.png" alt="⏸">
+            </div>
+            <div class="black"></div>
+        </div>
+        <div class="controls">
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+                <div class="tooltip" id="tooltip"></div>
+            </div>
+            <div class="controls-inner">
+                <div class="left">
+                    <button id="playPauseBtn">
+                        <img src="./smallPlayButton.png" alt="">
+                    </button>
+                    <button id="10sPrev" class="prevBtn">
+                        <span id="qq">10</span>
+                        <img src="./arrow.png" alt="">
+                    </button>
+                    <button id="10sNext" class="nextBtn">
+                        <span>10</span>
+                        <img src="./arrow.png" alt="">
+                    </button>
+                    <!-- Hozirgi vaqt ko'rsatiladigan div -->
+                    <div id="current-time">0:00</div> <!-- O'zgartirish kerak -->
+                    
+                    <!-- Davomiylik ko'rsatiladigan div -->
+                    <div id="duration">0:00</div> <!-- O'zgartirish kerak -->
+                </div>
+                <div class="right">
+                    <button id="muteBtn">
+                        <img src="./volume-up.png" alt="">
+                    </button>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+                    <div class="settings-icon" id="settings">
+                        <img src="./settings.png" alt="">
+                    </div>
+                    <div class="qualities">
+                        <button class="quality-btn" data-quality="360p">360p</button>
+                        <button class="quality-btn" data-quality="480p">480p</button>
+                        <button class="quality-btn" data-quality="720p">720p</button>
+                        <button class="quality-btn" data-quality="1440p">1440p</button>
+                    </div>
+                    <button id="fullscreenBtn">
+                        <img src="./preview.png" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
